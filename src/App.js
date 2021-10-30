@@ -1,12 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter,Switch,Route } from 'react-router-dom';
+import {BrowserRouter,Switch,Route } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import Header from './Components/Header/Header';
 import AuthProvider from './context/AuthProvider';
 import Shipping from './Components/Shipping/Shipping';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import PlaceOrder from './Components/PlaceOrder/PlaceOrder';
 
 function App() {
   return (
@@ -27,9 +29,12 @@ function App() {
         <Route path='/register'>
          <Register></Register>
         </Route> 
-        <Route path='/shipping'>
+        <PrivateRoute path='/shipping'>
          <Shipping  ></Shipping>
-        </Route>    
+        </PrivateRoute>  
+          <PrivateRoute path='/placeOrder'>
+         <PlaceOrder></PlaceOrder>
+        </PrivateRoute>    
       </Switch>
       
       </BrowserRouter>
