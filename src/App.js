@@ -5,11 +5,14 @@ import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import Header from './Components/Header/Header';
+import AuthProvider from './context/AuthProvider';
+import Shipping from './Components/Shipping/Shipping';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
       <Header></Header>
       <Switch>
         <Route exact path='/'>
@@ -23,10 +26,14 @@ function App() {
         </Route> 
         <Route path='/register'>
          <Register></Register>
+        </Route> 
+        <Route path='/shipping'>
+         <Shipping  ></Shipping>
         </Route>    
       </Switch>
       
       </BrowserRouter>
+      </AuthProvider>
       
     </div>
   );
