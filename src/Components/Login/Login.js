@@ -4,15 +4,17 @@ import useAuth from '../../hooks/useAuth';
 
 
 const Login = () => {
+
  const{signInUsingGoogle,signInUsingGithub}=useAuth();
+ 
  return (
   <div>
-   <h2>Please login</h2>
-   <button onClick={signInUsingGoogle}>Google sign in</button>
-   <br />
+    <h2>Please login</h2>
+    <button onClick={signInUsingGoogle}>Google sign in</button>
+    <br />
     <button onClick={signInUsingGithub}>Github sign in</button>
     <br />
-   <Link to ="/register">New user?</Link>
+    <Link to ="/register">New user?</Link>
   </div>
  );
 };
