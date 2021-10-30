@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import initializeAuthentication from './../firebase/firebase.init';
+import { useState,useEffect } from "react";
+import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged } from "firebase/auth";
+import initializeAuthentication from '../firebase/firebase.init';
 
 initializeAuthentication();
 const useFirebase=()=>{
@@ -19,6 +19,14 @@ const useFirebase=()=>{
      setError(error.message);
     })
   }
+  useEffect(()=>{
+    onAuthStateChanged(auth,user=>{
+      if (user){
+        console.log('inside ctate',user);
+        setUser(user);
+      }
+    })
+  },[])
   return {
   user,
   error,
